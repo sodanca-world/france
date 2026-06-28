@@ -14,7 +14,7 @@ const cidadesOrdenadas = cidades.sort((a, b) => a.data.Nome.localeCompare(b.data
 ---
 
 <!-- ================= DESKTOP SIDEBAR ================= -->
-<div class="hidden lg:flex lg:flex-col lg:justify-between lg:sticky lg:top-0 lg:h-screen lg:py-16 w-full text-white">
+<div class="hidden lg:flex lg:flex-col lg:justify-between lg:sticky lg:top-0 lg:h-screen lg:py-16 lg:px-8 w-full text-white bg-[#1a1f26]/65 backdrop-blur-md border-r border-white/5 shadow-2xl">
   
   <!-- Logo Section -->
   <div class="flex flex-col gap-2 shrink-0">
@@ -62,7 +62,7 @@ const cidadesOrdenadas = cidades.sort((a, b) => a.data.Nome.localeCompare(b.data
 <!-- ================= MOBILE LAYOUTS CONDICIONAIS ================= -->
 {isHome ? (
   /* ================= FOTO 2: HOME MOBILE: EXIBE A LISTA COMPLETA DE CIDADES NORMALMENTE ================= */
-  <div class="lg:hidden w-full px-6 py-12 text-white flex flex-col items-center select-none">
+  <div class="lg:hidden w-full px-6 py-12 text-white flex flex-col items-center bg-[#1a1f26]/65 backdrop-blur-md border-b border-white/5 min-h-screen select-none">
     <div class="flex flex-col gap-2 items-center mb-8">
       <img 
         src="/assets/images/frança-400x181.jpg" 
