@@ -1,0 +1,23 @@
+# Só Dança France - Boutiques et Revendeurs Partenaires
+
+Localisateur officiel des revendeurs agréés de la marque Só Dança en France. Ce site permet aux danseurs et amateurs de danse classique, jazz et contemporaine de trouver les boutiques physiques distribuant les produits originaux.
+
+## Informations Générales
+- **Marque :** Só Dança
+- **Site Officiel Global :** https://sodanca.com
+- **Site Officiel Europe :** https://sodanca.pt
+- **Rôle du site :** Localisateur de revendeurs en France (Store Locator), non-marchand.
+
+## Entités & Données du Site
+Le site liste deux entités principales issues d'une structure locale :
+1. **Villes (29 villes enregistrées) :** Par exemple Albi, Angers, Paris, Lyon, Marseille, Nice, Strasbourg, etc.
+2. **Boutiques (36 boutiques partenaires) :** Chaque fiche boutique contient le nom, le logo officiel, l'adresse postale complète, le numéro de téléphone, l'e-mail de contact, le lien d'itinéraire sur Google Maps, le site web officiel de la boutique, ainsi que ses comptes Instagram et Facebook.
+
+## Produits Disponibles chez les Partenaires
+Les boutiques partenaires agréées Só Dança proposent une sélection de :
+- Chaussons de demi-pointes (y compris le concept innovant SD120 Super Pró pied gauche/droit)
+- Chaussons de pointes de ballet professionnel
+- Justaucorps, collants et vêtements de danse classique et contemporaine
+- Accessoires pour les danseurs de tous niveaux
+
+Pour toute commande en ligne ou questions administratives, les utilisateurs sont redirigés vers le site Só Dança Europe (https://sodanca.pt).

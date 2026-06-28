@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+
+const cidades = await getCollection('cidades');
+// Ordena por ordem ou alfabética
+const cidadesOrdenadas = cidades.sort((a, b) => {
+  if (a.data.Ordem !== undefined && b.data.Ordem !== undefined) {
+    return a.data.Ordem - b.data.Ordem;
+  }
+  return a.data.Nome.localeCompare(b.data.Nome);
+});
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-sodanca-nude/30 bg-white/85 backdrop-blur-md transition-all duration-300">
+  <div class="mx-auto flex max-w-7xl h-20 items-center justify-between px-6">
+    
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <img 
+        src="/assets/images/Logo-2.png" 
+        alt="Só Dança Logo" 
+        class="h-10 w-auto object-contain"
+      />
+      <div class="hidden sm:flex flex-col border-l border-sodanca-nude/40 pl-3">
+        <span class="text-xs uppercase tracking-[0.2em] text-sodanca-dark/50">Boutiques</span>
+        <span class="font-sans text-sm font-semibold tracking-wide text-france-blue">France</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="/" class="text-sm font-medium text-sodanca-dark hover:text-france-blue transition-colors">
+        Accueil
+      </a>
+      
+      <!-- Dropdown Cidades -->
+      <div class="relative group">
+        <button class="flex items-center gap-1.5 text-sm font-medium text-sodanca-dark hover:text-france-blue transition-colors focus:outline-none">
+          Villes
+          <svg class="h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        
+        <!-- Dropdown Menu -->
+        <div class="absolute right-0 mt-2 w-72 origin-top-right rounded-xl border border-sodanca-nude/30 bg-white p-4 shadow-xl ring-1 ring-black/5 opacity-0 invisible translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 max-h-96 overflow-y-auto">
+          <div class="grid grid-cols-2 gap-2">
+            {cidadesOrdenadas.map((cidade) => (
+              <a 
+                href={`/ville/${cidade.data.Slug}/`} 
+                class="rounded-lg px-2.5 py-1.5 text-xs text-sodanca-dark/80 hover:bg-sodanca-pink/20 hover:text-france-blue font-medium transition-colors"
+              >
+                {cidade.data.Nome}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      <a 
+        href="https://sodanca.com" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="rounded-full bg-france-blue px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white btn-hover-effect"
+      >
+        Só Dança World
+      </a>
+    </nav>
+
+    <!-- Mobile Burger Menu -->
+    <button 
+      id="menu-toggle"
+      type="button" 
+      class="inline-flex items-center justify-center rounded-lg p-2 text-sodanca-dark hover:bg-sodanca-pink/10 focus:outline-none md:hidden"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg id="burger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu (Drawer) -->
+  <div 
+    id="mobile-menu" 
+    class="hidden md:hidden border-t border-sodanca-nude/20 bg-white/95 backdrop-blur-md max-h-[calc(100vh-80px)] overflow-y-auto animate-fade-in"
+  >
+    <div class="space-y-1 px-6 py-4">
+      <a 
+        href="/" 
+        class="block rounded-lg px-3 py-2 text-base font-medium text-sodanca-dark hover:bg-sodanca-pink/10 hover:text-france-blue"
+      >
+        Accueil
+      </a>
+      
+      <div class="border-t border-sodanca-nude/10 my-2 pt-2">
+        <span class="block px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-sodanca-dark/40">Villes</span>
+        <div class="grid grid-cols-2 gap-1 px-3">
+          {cidadesOrdenadas.map((cidade) => (
+            <a 
+              href={`/ville/${cidade.data.Slug}/`} 
+              class="rounded-md py-1 text-sm text-sodanca-dark/80 hover:text-france-blue font-medium"
+            >
+              {cidade.data.Nome}
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <div class="border-t border-sodanca-nude/10 my-2 pt-4">
+        <a 
+          href="https://sodanca.com" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="block w-full rounded-full bg-france-blue py-2.5 text-center text-sm font-semibold uppercase tracking-wider text-white"
+        >
+          Só Dança World
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  if (toggleBtn && mobileMenu && burgerIcon && closeIcon) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', (!isExpanded).toString());
+      
+      mobileMenu.classList.toggle('hidden');
+      burgerIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  }
+</script>

@@ -1,0 +1,108 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import StoreCard from '../../components/StoreCard.astro';
+
+export async function getStaticPaths() {
+  const cidades = await getCollection('cidades');
+  return cidades.map((cidade) => ({
+    params: { slug: cidade.data.Slug },
+    props: { cidade },
+  }));
+}
+
+const { cidade } = Astro.props;
+
+// Buscar todas as lojas e filtrar as que pertencem a esta cidade
+const lojas = await getCollection('lojas');
+const lojasNaCidade = lojas.filter((loja) => 
+  loja.data.Cidade.includes(cidade.data.Slug)
+);
+
+// Schema JSON-LD para o localizador de lojas na cidade
+const pageUrl = `https://france.sodanca.world/ville/${cidade.data.Slug}/`;
+const locatorSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": `Boutiques de danse Só Dança à ${cidade.data.Nome}`,
+  "url": pageUrl,
+  "numberOfItems": lojasNaCidade.length,
+  "itemListElement": lojasNaCidade.map((loja, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "item": {
+      "@type": "LocalBusiness",
+      "name": loja.data.Nome,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": loja.data.Endereco || "",
+        "addressLocality": cidade.data.Nome,
+        "addressCountry": "FR"
+      },
+      "telephone": loja.data.Telefone || undefined,
+      "url": `https://france.sodanca.world/cliente/${loja.data.Slug}/`
+    }
+  }))
+};
+---
+
+<Layout 
+  title={`Boutiques de Danse à ${cidade.data.Nome}`} 
+  description={`Retrouvez la liste des revendeurs et boutiques de danse partenaires Só Dança à ${cidade.data.Nome}. Adresses, itinéraires, contacts.`}
+  schema={locatorSchema}
+>
+  
+  <!-- Banner Top Section -->
+  <section class="bg-sodanca-light border-b border-sodanca-nude/20 py-12 md:py-16">
+    <div class="mx-auto max-w-7xl px-6">
+      
+      <!-- Back Link -->
+      <a 
+        href="/" 
+        class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sodanca-accent hover:text-france-blue transition-colors mb-6"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Retour à l'accueil
+      </a>
+
+      <!-- Title -->
+      <h1 class="font-sans text-3xl md:text-5xl font-bold tracking-tight text-sodanca-dark mb-4">
+        Boutiques à <span class="text-france-blue font-extrabold">{cidade.data.Nome}</span>
+      </h1>
+      <p class="text-sm md:text-base text-gray-500 font-medium max-w-2xl leading-relaxed">
+        Découvrez les boutiques spécialisées qui distribuent les produits officiels Só Dança (chaussons de pointe, demi-pointes, justaucorps et accessoires de danse) dans votre région.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Lojas List Section -->
+  <section class="mx-auto max-w-7xl px-6 py-16">
+    {lojasNaCidade.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {lojasNaCidade.map((loja) => (
+          <StoreCard loja={loja.data} />
+        ))}
+      </div>
+    ) : (
+      <div class="py-20 text-center flex flex-col items-center justify-center border border-dashed border-sodanca-nude/30 rounded-2xl bg-white max-w-xl mx-auto">
+        <svg class="h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+        <h3 class="text-lg font-semibold text-sodanca-dark mb-1">Aucune boutique disponible</h3>
+        <p class="text-sm text-gray-400 max-w-xs leading-relaxed">
+          Nous n'avons actuellement aucun revendeur enregistré à {cidade.data.Nome}. Revenez bientôt !
+        </p>
+        <a 
+          href="/" 
+          class="mt-6 rounded-full bg-france-blue px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white btn-hover-effect"
+        >
+          Voir les autres villes
+        </a>
+      </div>
+    )}
+  </section>
+
+</Layout>

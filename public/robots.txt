@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://france.sodanca.world/sitemap-index.xml

@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import StoreCard from '../../components/StoreCard.astro';
+
+export async function getStaticPaths() {
+  const lojas = await getCollection('lojas');
+  return lojas.map((loja) => ({
+    params: { slug: loja.data.Slug },
+    props: { loja },
+  }));
+}
+
+const { loja } = Astro.props;
+
+// Buscar os dados da cidade da loja para links e breadcrumbs
+const cidades = await getCollection('cidades');
+const cidadeSlug = loja.data.Cidade[0] || '';
+const cidade = cidades.find(c => c.data.Slug === cidadeSlug);
+
+const logoUrl = (loja.data.Logo && loja.data.Logo.length > 0)
+  ? loja.data.Logo[0].url
+  : '/assets/images/cropped-Logo-2.png';
+
+// Schema LocalBusiness dinâmico para SEO local da loja
+const pageUrl = `https://france.sodanca.world/cliente/${loja.data.Slug}/`;
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${pageUrl}#store`,
+  "name": loja.data.Nome,
+  "image": logoUrl.startsWith('http') ? logoUrl : `https://france.sodanca.world${logoUrl}`,
+  "url": loja.data.Website || pageUrl,
+  "telephone": loja.data.Telefone || undefined,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": loja.data.Endereco || "",
+    "addressLocality": cidade ? cidade.data.Nome : "",
+    "addressCountry": "FR"
+  },
+  "sameAs": [
+    loja.data.Instagram || "",
+    loja.data.Facebook || ""
+  ].filter(Boolean)
+};
+---
+
+<Layout
+  title={loja.data.Nome}
+  description={`Découvrez la fiche détaillée de la boutique ${loja.data.Nome}${cidade ? ` à ${cidade.data.Nome}` : ''}. Contacts, adresse, itinéraire et réseaux sociaux.`}
+  ogImage={logoUrl}
+  schema={businessSchema}
+>
+
+  <section class="bg-sodanca-light border-b border-sodanca-nude/20 py-10">
+    <div class="mx-auto max-w-3xl px-6">
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sodanca-accent mb-8">
+        <a href="/" class="hover:text-france-blue transition-colors">Accueil</a>
+        <svg class="h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        {cidade && (
+          <>
+            <a href={`/ville/${cidade.data.Slug}/`} class="hover:text-france-blue transition-colors">{cidade.data.Nome}</a>
+            <svg class="h-3 w-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </>
+        )}
+        <span class="text-france-blue truncate max-w-[150px]">{loja.data.Nome}</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Store Detail Card Section -->
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <div class="animate-fade-in">
+      <StoreCard loja={loja.data} isDetail={true} />
+    </div>
+
+    <!-- Back Button -->
+    <div class="mt-8 flex justify-center">
+      {cidade && (
+        <a 
+          href={`/ville/${cidade.data.Slug}/`}
+          class="inline-flex items-center gap-2 text-sm font-semibold text-sodanca-accent hover:text-france-blue transition-colors"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Voir toutes les boutiques de {cidade.data.Nome}
+        </a>
+      )}
+    </div>
+  </section>
+
+</Layout>

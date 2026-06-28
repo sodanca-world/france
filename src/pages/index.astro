@@ -1,0 +1,148 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import CityCard from '../components/CityCard.astro';
+
+// Buscar coleções
+const cidades = await getCollection('cidades');
+const lojas = await getCollection('lojas');
+
+// Ordenar cidades
+const cidadesOrdenadas = cidades.sort((a, b) => {
+  if (a.data.Ordem !== undefined && b.data.Ordem !== undefined) {
+    return a.data.Ordem - b.data.Ordem;
+  }
+  return a.data.Nome.localeCompare(b.data.Nome);
+});
+
+// Contar lojas por cidade para passar como prop
+const getLojasCount = (cidadeSlug: string) => {
+  return lojas.filter(loja => loja.data.Cidade.includes(cidadeSlug)).length;
+};
+---
+
+<Layout 
+  title="Trouvez votre boutique de danse" 
+  description="Trouvez le revendeur de chaussons et vêtements de danse Só Dança le plus proche de chez vous en France. Store locator officiel."
+>
+  
+  <!-- Hero Section -->
+  <section class="relative bg-sodanca-dark text-white overflow-hidden py-24 md:py-32">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/assets/images/FR-fundo-site.jpg" 
+        alt="Só Dança France Background" 
+        class="h-full w-full object-cover opacity-35"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-sodanca-dark via-sodanca-dark/80 to-transparent"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 mx-auto max-w-4xl px-6 text-center flex flex-col items-center">
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-sodanca-nude/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-sodanca-nude mb-6 border border-sodanca-nude/30">
+        <span class="flex h-2 w-2 rounded-full bg-france-red animate-pulse"></span>
+        Revendeurs Officiels
+      </span>
+      <h1 class="font-sans text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
+        Boutiques Partenaires <br/>
+        <span class="text-sodanca-nude">Só Dança</span> en France
+      </h1>
+      <p class="text-base md:text-lg text-gray-300 max-w-xl leading-relaxed mb-10">
+        Retrouvez la liste complète de nos boutiques partenaires à travers la France pour essayer et acheter vos chaussons de pointe, demi-pointes et tenues de danse Só Dança.
+      </p>
+
+      <!-- Search Input Container -->
+      <div class="w-full max-w-md relative group">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+          <svg class="h-5 w-5 text-gray-400 group-focus-within:text-france-blue transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <input 
+          id="city-search"
+          type="text" 
+          placeholder="Rechercher une ville..." 
+          class="w-full pl-11 pr-4 py-4 rounded-full border-0 bg-white text-sodanca-dark placeholder-gray-400 focus:ring-2 focus:ring-sodanca-nude text-sm shadow-lg font-medium transition-all"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Cities Grid Section -->
+  <section class="mx-auto max-w-7xl px-6 py-20">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+      <div>
+        <span class="text-xs uppercase tracking-[0.2em] font-semibold text-sodanca-accent">Localisateur</span>
+        <h2 class="font-sans text-3xl font-bold text-sodanca-dark mt-1">Recherche par ville</h2>
+      </div>
+      <p class="text-sm text-gray-500 font-medium max-w-xs">
+        Sélectionnez votre ville ci-dessous pour voir la liste complète des boutiques de danse partenaires.
+      </p>
+    </div>
+
+    <!-- Cities Grid -->
+    <div 
+      id="cities-grid"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-fade-in"
+    >
+      {cidadesOrdenadas.map((cidade) => {
+        const count = getLojasCount(cidade.data.Slug);
+        return (
+          <div class="city-item-wrapper" data-name={cidade.data.Nome.toLowerCase()}>
+            <CityCard 
+              nome={cidade.data.Nome} 
+              slug={cidade.data.Slug} 
+              lojasCount={count}
+            />
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Empty State -->
+    <div 
+      id="empty-state" 
+      class="hidden py-16 text-center flex flex-col items-center justify-center border border-dashed border-sodanca-nude/30 rounded-2xl bg-white"
+    >
+      <svg class="h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <h3 class="text-lg font-semibold text-sodanca-dark mb-1">Aucune ville trouvée</h3>
+      <p class="text-sm text-gray-400">Essayez de saisir un autre nom de ville.</p>
+    </div>
+
+  </section>
+</Layout>
+
+<script>
+  const searchInput = document.getElementById('city-search') as HTMLInputElement | null;
+  const cityItems = document.querySelectorAll('.city-item-wrapper');
+  const emptyState = document.getElementById('empty-state');
+  const citiesGrid = document.getElementById('cities-grid');
+
+  if (searchInput && cityItems && emptyState && citiesGrid) {
+    searchInput.addEventListener('input', (e) => {
+      const value = (e.target as HTMLInputElement).value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      let matches = 0;
+
+      cityItems.forEach((item) => {
+        const nameAttr = item.getAttribute('data-name') || '';
+        const nameNormalized = nameAttr.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        if (nameNormalized.includes(value)) {
+          item.classList.remove('hidden');
+          matches++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      if (matches === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
+    });
+  }
+</script>

@@ -1,0 +1,666 @@
+[
+  {
+    "id": "flashdance",
+    "Nome": "Flashdance",
+    "Slug": "flashdance",
+    "Cidade": [
+      "paris"
+    ],
+    "Endereco": "17 rue de la Pépinière, 75008 Paris",
+    "LinkMaps": "https://www.google.com/maps/@48.8751254,2.3223755,3a,75y,169.59h,90t/data=!3m7!1e1!3m5!1sHjaKw4AK725LpbjEE6iE6g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DHjaKw4AK725LpbjEE6iE6g%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D169.59%26pitch%3D0%26thumbfov%3D90!7i16384!8i8192?coh=205410&entry=ttu",
+    "Telefone": "01 42 93 05 71",
+    "Email": "contact@flashdance.fr",
+    "Instagram": "https://www.instagram.com/flashdance_paris/",
+    "Facebook": "https://www.facebook.com/flashdance75008/",
+    "Website": "https://www.flashdanceparis.com/",
+    "Logo": [
+      {
+        "url": "/assets/images/237053185_4195401820543960_5789685567708466628_n-1.jpg"
+      }
+    ]
+  },
+  {
+    "id": "la-danse",
+    "Nome": "La Danse",
+    "Slug": "la-danse",
+    "Cidade": [
+      "bordeaux"
+    ],
+    "Endereco": "20 Rue de Cursol 33000 BORDEAUX",
+    "LinkMaps": "https://www.google.com/maps/place/La+Danse+Bordeaux/@44.8349236,-0.5765071,3a,75y,201.12h,86.12t/data=!3m7!1e1!3m5!1sryDpnBHH8nSy9Eelhp3uMw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DryDpnBHH8nSy9Eelhp3uMw%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D201.11589946763786%26pitch%3D3.876900381356677%26thumbfov%3D90!7i16384!8i8192!4m16!1m9!3m8!1s0xd5527c69f561499:0xf12f9521bfdf6b82!2s20+Rue+de+Cursol,+33000+Bordeaux,+France!3b1!8m2!3d44.8348044!4d-0.5766192!10e5!16s%2Fg%2F11bw448nm3!3m5!1s0xd5527c3e5582b79:0x25940b13c568e056!8m2!3d44.8348404!4d-0.5765676!16s%2Fg%2F1tl_n0sj?coh=205410&entry=ttu",
+    "Telefone": "05 56 44 85 46",
+    "Email": "ladanse.sicl@orange.fr",
+    "Instagram": "https://www.instagram.com/ladansebdx/?hl=en",
+    "Facebook": "https://www.facebook.com/laDanseBordeaux/",
+    "Website": "https://www.bordeaux-danse.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/265653179_1317117552049587_6123476178514824761_n.png"
+      }
+    ]
+  },
+  {
+    "id": "bolero",
+    "Nome": "Bolero",
+    "Slug": "bolero",
+    "Cidade": [],
+    "Endereco": "4, Rue Durand",
+    "Telefone": "33 467 920 370",
+    "Email": "bolero.m@free.fr",
+    "Logo": [
+      {
+        "url": "/assets/images/boneco-so-danca-400x400-2.jpg"
+      }
+    ]
+  },
+  {
+    "id": "esprit-studio",
+    "Nome": "Esprit Studio",
+    "Slug": "esprit-studio",
+    "Cidade": [
+      "arnouville-les-govesse"
+    ],
+    "Endereco": "19 avenue Raspail, Arnouville, Ile-De-France, France 95400",
+    "LinkMaps": "https://www.google.com/maps/place/Le+Studio/@48.9941773,2.4146559,3a,75y,145.33h,94.45t/data=!3m7!1e1!3m5!1s3-kFhjCE0DEcIpd0dx-Ppg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D3-kFhjCE0DEcIpd0dx-Ppg%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D145.3252414844935%26pitch%3D-4.445575188741259%26thumbfov%3D90!7i16384!8i8192!4m16!1m9!3m8!1s0x47e66a5d05f642f9:0xd23fa83ddbbe2b41!2s19+Av.+Raspail,+95400+Arnouville,+France!3b1!8m2!3d48.994036!4d2.4148049!10e5!16s%2Fg%2F11c4tr__gl!3m5!1s0x47e66a5d086bd40f:0x5f1e12d7fd4e8f0!8m2!3d48.9940494!4d2.414827!16s%2Fg%2F1tj5kg3v?coh=205410&entry=ttu",
+    "Telefone": "33 139 876 767",
+    "Email": "lestudio.bz@orange.fr",
+    "Instagram": "https://www.instagram.com/lestudiodanse/",
+    "Facebook": "https://www.facebook.com/Lestudiodanse95",
+    "Website": "https://lestudiodanse.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/301677157_491498676312784_1201436729283311743_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "flash-danse",
+    "Nome": "Flash Danse",
+    "Slug": "flash-danse",
+    "Cidade": [
+      "nimes"
+    ],
+    "Endereco": "130, Chemin Sous St Etienne, Rond Point Rte de Bagnols",
+    "Telefone": "04 66 40 20 56",
+    "Email": "flashdanse30@hotmail.com",
+    "Facebook": "https://www.facebook.com/FlashDanse30/",
+    "Website": "https://flashdanse30.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/241342565_363970131832603_2608823694376204499_n.png"
+      }
+    ]
+  },
+  {
+    "id": "rey-dance",
+    "Nome": "Rey Dance",
+    "Slug": "rey-dance",
+    "Cidade": [
+      "albi"
+    ],
+    "Endereco": "43 Bd Soult, 81000 Albi, France",
+    "LinkMaps": "https://www.google.com/maps/place/REY+DANCE/@43.9284473,2.1530814,3a,75y,21.84h,98.39t/data=!3m7!1e1!3m5!1sedeiPSrBudwuNcIU1G15gw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DedeiPSrBudwuNcIU1G15gw%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D21.839858198026803%26pitch%3D-8.391973087604384%26thumbfov%3D90!7i16384!8i8192!4m16!1m9!3m8!1s0x12ade805dbf00001:0x6c3e3dc68099bdb6!2s43+Bd+Soult,+81000+Albi,+France!3b1!8m2!3d43.9285642!4d2.1532754!10e5!16s%2Fg%2F11dfj1l7k5!3m5!1s0x12ade805da27784d:0xbaf4d616dc6f7413!8m2!3d43.9285642!4d2.1532754!16s%2Fg%2F1tfvw9wk?coh=205410&entry=ttu",
+    "Telefone": "33 563 472 361",
+    "Email": "jpierrerey@yahoo.fr",
+    "Facebook": "https://www.facebook.com/ReyDanceShop/",
+    "Logo": [
+      {
+        "url": "/assets/images/boneco-so-danca-400x400-2.jpg"
+      }
+    ]
+  },
+  {
+    "id": "passion-danse",
+    "Nome": "Passion Danse",
+    "Slug": "passion-danse",
+    "Cidade": [
+      "strasbourg"
+    ],
+    "Endereco": "3, Rue Brulé",
+    "LinkMaps": "https://www.google.com/maps/place/Passion+Danse/@48.5841616,7.7501675,3a,75y,249.5h,92.4t/data=!3m7!1e1!3m5!1st4YXesvGpiLvJMDjRojvQA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3Dt4YXesvGpiLvJMDjRojvQA%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D249.50468121564322%26pitch%3D-2.4039951164135687%26thumbfov%3D90!7i16384!8i8192!4m16!1m9!3m8!1s0x4796c85187a1e717:0x5b381a2144847d7e!2s3+Rue+Br%C3%BBl%C3%A9e,+67000+Strasbourg,+France!3b1!8m2!3d48.584246!4d7.750074!10e5!16s%2Fg%2F11cs7_c_2r!3m5!1s0x4796c85226515453:0xcbf3986e5a8cbdba!8m2!3d48.584213!4d7.7500499!16s%2Fg%2F11b6dpwgzx?coh=205410&entry=ttu",
+    "Telefone": "+33 3 88 32 50 38",
+    "Email": "passion.danse.contact@gmail.com",
+    "Facebook": "https://www.facebook.com/boutiquepassiondanse/",
+    "Logo": [
+      {
+        "url": "/assets/images/299685090_505750971552579_1833210039737964385_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "stanlowa-3",
+    "Nome": "Stanlowa",
+    "Slug": "stanlowa-3",
+    "Cidade": [
+      "paris"
+    ],
+    "Endereco": "250, Faubourg Saint Honoré",
+    "Telefone": "+33 1 45 62 37 95",
+    "Email": "courrier@stanlowa.paris",
+    "Instagram": "https://www.instagram.com/stanlowa",
+    "Facebook": "https://www.facebook.com/stanlowa/",
+    "Website": "https://www.stanlowa.com/",
+    "Logo": [
+      {
+        "url": "/assets/images/292172165_464909825638627_7789637463979927889_n.png"
+      }
+    ]
+  },
+  {
+    "id": "ki-danse",
+    "Nome": "Ki' Danse",
+    "Slug": "ki-danse",
+    "Cidade": [
+      "le-plessis-pate"
+    ],
+    "Endereco": "6 Allee Vivaldi - Le Ny Christelle",
+    "Telefone": "06 20 49 46 84",
+    "Email": "kidanse@live.fr",
+    "Facebook": "https://www.facebook.com/kidanse?ref=hl",
+    "Logo": [
+      {
+        "url": "/assets/images/305966223_520741190051489_277726456098938900_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "danse-boutic-avenue",
+    "Nome": "Danse Boutic Avenue",
+    "Slug": "danse-boutic-avenue",
+    "Cidade": [
+      "marseille"
+    ],
+    "Endereco": "34, Avenue Maréchal Foch",
+    "LinkMaps": "https://www.google.com/maps/place/Danse+Boutic%E2%80%99Avenue/@43.3006483,5.3995222,3a,75y,237.65h,94.32t/data=!3m7!1e1!3m5!1sNo3QEJrQZ__u11BhYeFxWg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DNo3QEJrQZ__u11BhYeFxWg%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D237.6453158694236%26pitch%3D-4.3163680195432335%26thumbfov%3D90!7i16384!8i8192!4m16!1m9!3m8!1s0x12c9bf672debda27:0x27f2ac0c51edc156!2s34+Av.+du+Mar%C3%A9chal+Foch,+13004+Marseille,+France!3b1!8m2!3d43.3006225!4d5.3994553!10e5!16s%2Fg%2F11c1zyjft2!3m5!1s0x12c9bf672db9af89:0x62661b88d0a9ce0d!8m2!3d43.3006225!4d5.3994553!16s%2Fg%2F1vff2mfg?coh=205410&entry=ttu",
+    "Telefone": "+33 (0) 4 91 34 19 41",
+    "Email": "contact@danse-boutic.com",
+    "Instagram": "https://www.instagram.com/danseboutic.avenue/",
+    "Facebook": "https://www.facebook.com/danseboutic.avenue.9",
+    "Website": "https://www.danse-boutic.com/pt/",
+    "Logo": [
+      {
+        "url": "/assets/images/448615550_2386439431561551_3591327418131567780_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "glace-danse",
+    "Nome": "Glace Danse",
+    "Slug": "glace-danse",
+    "Cidade": [
+      "lyon"
+    ],
+    "Endereco": "27 rue Baraban",
+    "LinkMaps": "https://www.google.com/maps/@45.7635832,4.8687891,3a,63.3y,97.51h,91.38t/data=!3m7!1e1!3m5!1sGzu4OCYAygOBaervUjipXg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DGzu4OCYAygOBaervUjipXg%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D97.5121853885374%26pitch%3D-1.378414420352101%26thumbfov%3D90!7i16384!8i8192?coh=205410&entry=ttu",
+    "Telefone": "04 72 35 96 10",
+    "Email": "info@glace-danse.com",
+    "Instagram": "https://www.instagram.com/glace_danse/",
+    "Facebook": "https://www.facebook.com/glace.danse",
+    "Website": "http://www.glace-danse.com/",
+    "Logo": [
+      {
+        "url": "/assets/images/programar-europa-5.jpg"
+      }
+    ]
+  },
+  {
+    "id": "chorelys",
+    "Nome": "Chorélys",
+    "Slug": "chorelys",
+    "Cidade": [
+      "dammarie-les-lys"
+    ],
+    "Endereco": "806, Av. Charles Prieur",
+    "LinkMaps": "https://www.google.com/maps/@48.5109621,2.6156061,3a,77.2y,327.53h,95.17t/data=!3m7!1e1!3m5!1slgUcHDt66AQZFPuXUNXtAA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DlgUcHDt66AQZFPuXUNXtAA%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D327.5276238547065%26pitch%3D-5.166706775427286%26thumbfov%3D90!7i16384!8i8192?coh=205410&entry=ttu",
+    "Telefone": "33 164 393 336",
+    "Email": "info@chorelys.com",
+    "Facebook": "https://www.facebook.com/chorelys/",
+    "Website": "https://www.chorelys.com/index.htm",
+    "Logo": [
+      {
+        "url": "/assets/images/programar-europa.jpg"
+      }
+    ]
+  },
+  {
+    "id": "body-langage",
+    "Nome": "Body Langage",
+    "Slug": "body-langage",
+    "Cidade": [
+      "nice"
+    ],
+    "Endereco": "8 boulevard raimbaldi",
+    "LinkMaps": "https://www.google.com/maps/@43.7073734,7.2689556,3a,75y,255.63h,76.52t/data=!3m7!1e1!3m5!1sMzUV_TfnVHg9dGsaNCsegQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DMzUV_TfnVHg9dGsaNCsegQ%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D255.63111666443018%26pitch%3D13.480515562898134%26thumbfov%3D90!7i16384!8i8192?coh=205410&entry=ttu",
+    "Telefone": "33 951 599 599",
+    "Email": "contact@bodylangage.fr",
+    "Instagram": "https://www.instagram.com/body.langage/",
+    "Facebook": "https://www.facebook.com/bodylangage/",
+    "Logo": [
+      {
+        "url": "/assets/images/10174796_748751015175858_3332565469240181698_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "cendryllon",
+    "Nome": "Cendryllon",
+    "Slug": "cendryllon",
+    "Cidade": [
+      "chalon-sur-saone"
+    ],
+    "Endereco": "4, Rue Porte de Lyon",
+    "LinkMaps": "https://www.google.com/maps/uv?pb=!1s0x47f2fcc0385e0275%3A0xd3adb9a25a95ba6a!3m1!7e115!4s%2Fmaps%2Fplace%2Fcendryllon%2F%4046.7793087%2C4.8506565%2C3a%2C75y%2C332.97h%2C90t%2Fdata%3D*213m4*211e1*213m2*211s6ilOKLGpUDLmfpJ3FmXN1Q*212e0*214m2*213m1*211s0x47f2fcc0385e0275%3A0xd3adb9a25a95ba6a%3Fsa%3DX%26ved%3D2ahUKEwji0a-6zNGHAxWeqpUCHd1eCO8Qpx96BAgUEAA!5scendryllon%20-%20Google%20Search!15sCgIgAQ&imagekey=!1e2!2s6ilOKLGpUDLmfpJ3FmXN1Q&cr=le_a7&hl=en&ved=1t%3A206134&ictx=111",
+    "Telefone": "33 385 930 914",
+    "Email": "cendryllon@orange.fr",
+    "Website": "https://cendryllon.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/20240510_113058-768x354-1.jpg"
+      }
+    ]
+  },
+  {
+    "id": "lentre-chats",
+    "Nome": "L´Entre Chats",
+    "Slug": "lentre-chats",
+    "Cidade": [
+      "rueil-malmaison"
+    ],
+    "Endereco": "10, Avenue Georges Clémenceau",
+    "Telefone": "33 147 081 680",
+    "Email": "contact@lentrechats.fr",
+    "Facebook": "https://www.facebook.com/LEntrechats/",
+    "Website": "https://www.lentrechats.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/161812589_185023226758872_5130441343176373562_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "danses-et-plage",
+    "Nome": "Danses Et Plage",
+    "Slug": "danses-et-plage",
+    "Cidade": [
+      "angers"
+    ],
+    "Endereco": "19, Rue Saint Julien",
+    "LinkMaps": "https://www.google.com/maps/place/Dances+and+Beach/@47.4701237,-0.551641,3a,75y,55.57h,95.75t/data=!3m7!1e1!3m5!1slJ7sQbcMY8fD4n8_QZCoJQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DlJ7sQbcMY8fD4n8_QZCoJQ%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D55.57142677082122%26pitch%3D-5.7491429907527305%26thumbfov%3D90!7i16384!8i8192!4m16!1m9!3m8!1s0x480878ea66d94655:0x37b56edcaefc4329!2s19+Rue+Saint-Julien,+49100+Angers,+France!3b1!8m2!3d47.4701484!4d-0.5515033!10e5!16s%2Fg%2F11bw3_cfwt!3m5!1s0x480878ea61241641:0x88630cbf15faa2d4!8m2!3d47.4701448!4d-0.5515753!16s%2Fg%2F1tdvjkgn?coh=205410&entry=ttu",
+    "Telefone": "33 241 201 008",
+    "Email": "dansesetplage@free.fr",
+    "Instagram": "https://www.instagram.com/dansesetplageangers/",
+    "Facebook": "https://www.facebook.com/dansesetplage/",
+    "Website": "https://www.dansesetplage.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/253549859_1988181661359089_8994290927255086920_n.png"
+      }
+    ]
+  },
+  {
+    "id": "cadence-cheval-mon-ami",
+    "Nome": "Cadence / Cheval Mon Ami",
+    "Slug": "cadence-cheval-mon-ami",
+    "Cidade": [],
+    "Endereco": "4, Allée du Cadran",
+    "Telefone": "33 559 630 073",
+    "Email": "sellerie-du-bab@orange.fr",
+    "Logo": [
+      {
+        "url": "/assets/images/boneco-so-danca-400x400-2.jpg"
+      }
+    ]
+  },
+  {
+    "id": "duo-style",
+    "Nome": "Duo Style",
+    "Slug": "duo-style",
+    "Cidade": [
+      "paris"
+    ],
+    "Endereco": "168 bis, Rue de Charonne",
+    "Telefone": "+33 1 43 73 19 69",
+    "Email": "info@duostyle.com",
+    "Instagram": "https://www.instagram.com/duostyleparis/",
+    "Facebook": "https://www.facebook.com/DUOSTYLE.Articles.Danse.Atelier.Creation",
+    "Website": "https://www.duostyle.com/",
+    "Logo": [
+      {
+        "url": "/assets/images/71854920_2390136477748670_1885549488290922496_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "fame-la-maison-de-la-danse",
+    "Nome": "Fame - La Maison de La Danse",
+    "Slug": "fame-la-maison-de-la-danse",
+    "Cidade": [
+      "paris"
+    ],
+    "Endereco": "87, Avenue des Ternes",
+    "LinkMaps": "https://www.google.com/maps/place/Fame+-+The+House+of+Dance/@48.8799259,2.2883699,3a,75y,167.59h,91.8t/data=!3m7!1e1!3m5!1spXwjq6Ng64WfxzudJUSg8g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DpXwjq6Ng64WfxzudJUSg8g%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D167.5871947457411%26pitch%3D-1.7983324771593487%26thumbfov%3D90!7i16384!8i8192!4m16!1m9!3m8!1s0x47e66f8d0a21dd65:0xdb5b801016716463!2s87+Av.+des+Ternes,+75017+Paris,+France!3b1!8m2!3d48.8797602!4d2.2882444!10e5!16s%2Fg%2F11c218366g!3m5!1s0x47e66f8dc325a3fd:0x74c4c513eae7cde!8m2!3d48.87982!4d2.2883411!16s%2Fg%2F1tk66_ng?coh=205410&entry=ttu",
+    "Telefone": "01 88 61 04 53",
+    "Email": "serviceclient@lamaisondeladanse.fr",
+    "Instagram": "https://www.instagram.com/fameparis/?hl=en",
+    "Facebook": "https://www.facebook.com/fame.paris",
+    "Website": "https://lamaisondeladanse.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/348273482_280453324408988_3212622588314026301_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "avant-scene",
+    "Nome": "Avant-Scène",
+    "Slug": "avant-scene",
+    "Cidade": [
+      "albi"
+    ],
+    "Endereco": "43 Rue Sère de Rivières",
+    "LinkMaps": "https://www.google.com/maps/place/43+Rue+S%C3%A9r%C3%A9+de+Rivi%C3%A8res,+81000+Albi,+Fran%C3%A7a/@43.9264853,2.1475306,17z/data=!3m1!4b1!4m5!3m4!1s0x12ade8012d9a7761:0x51b5017def1f776b!8m2!3d43.9264853!4d2.1497246",
+    "Telefone": "+33 5 81 40 42 26",
+    "Email": "contact@avant-scene-danse.com",
+    "Instagram": "https://www.instagram.com/avantscenedanse/",
+    "Facebook": "https://www.facebook.com/avantscenedanse/",
+    "Website": "https://avant-scene-danse.com/",
+    "Logo": [
+      {
+        "url": "/assets/images/boneco-so-danca-400x400-2.jpg"
+      }
+    ]
+  },
+  {
+    "id": "la-boutique-aux-arabesques",
+    "Nome": "La Boutique Aux Arabesques",
+    "Slug": "la-boutique-aux-arabesques",
+    "Cidade": [
+      "dijon"
+    ],
+    "Endereco": "11, rue Auguste Comte",
+    "Telefone": "33 380 657 524",
+    "Email": "arabesques21@free.fr",
+    "Instagram": "https://www.instagram.com/boutiqueauxarabesques/",
+    "Logo": [
+      {
+        "url": "/assets/images/programar-europa-1.jpg"
+      }
+    ]
+  },
+  {
+    "id": "o-royaume-de-la-danse",
+    "Nome": "O Royaume de la Danse",
+    "Slug": "o-royaume-de-la-danse",
+    "Cidade": [
+      "port-frejus"
+    ],
+    "Endereco": "17, rue du Littoral - Pormaris B",
+    "LinkMaps": "https://www.google.com/maps/@43.4223984,6.7505515,3a,51.6y,22.85h,91.28t/data=!3m7!1e1!3m5!1s8lO3MEr6pZPEsuV0tkvbew!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D8lO3MEr6pZPEsuV0tkvbew%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D22.846966091835498%26pitch%3D-1.2751949135376606%26thumbfov%3D90!7i16384!8i8192?coh=205410&entry=ttu",
+    "Telefone": "33 494 536 103",
+    "Email": "oroyaumedeladanse@gmail.com",
+    "Instagram": "https://www.instagram.com/oroyaumedeladanse_/",
+    "Facebook": "https://www.facebook.com/oroyaumedeladanse83/",
+    "Website": "https://oroyaumedeladanse.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/305201625_596686362058266_6288672461468767271_n.png"
+      }
+    ]
+  },
+  {
+    "id": "dansea",
+    "Nome": "Dansea",
+    "Slug": "dansea",
+    "Cidade": [
+      "mouans-sartoux"
+    ],
+    "Endereco": "412 Route de Tiragon",
+    "LinkMaps": "https://www.google.com/maps/place/Dansea/@43.614151,6.9645752,3a,75y,328.79h,90.96t/data=!3m7!1e1!3m5!1sBbZRNaEnc3RpNFOlHLqGDQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DBbZRNaEnc3RpNFOlHLqGDQ%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D328.7946729567141%26pitch%3D-0.9635896550753102%26thumbfov%3D90!7i16384!8i8192!4m16!1m9!3m8!1s0x12cc29ab2ec33425:0x2f851ad7c7619f93!2s412+Rte+de+Tiragon,+06370+Mouans-Sartoux,+France!3b1!8m2!3d43.6144139!4d6.9643652!10e5!16s%2Fg%2F11c117tm0w!3m5!1s0x12cc29ab25283d61:0xcd0c19d64b252580!8m2!3d43.6144381!4d6.9643345!16s%2Fg%2F1tcxlw4y?coh=205410&entry=ttu",
+    "Telefone": "04.92.28.14.18",
+    "Email": "boutique@dansea.fr",
+    "Instagram": "https://www.instagram.com/dansea.fr/?hl=fr",
+    "Facebook": "https://www.facebook.com/danseashop/?locale=fr_FR",
+    "Website": "https://www.dansea.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/276055682_5056532941034427_6368756080633468488_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "danse-a-la-maud",
+    "Nome": "Danse à la Maud",
+    "Slug": "danse-a-la-maud",
+    "Cidade": [
+      "tournefeuille"
+    ],
+    "Endereco": "46, rue de la Garenne",
+    "Telefone": "+33 6 49 55 01 68",
+    "Email": "dansealamaud@free.fr",
+    "Facebook": "https://www.facebook.com/profile.php?id=100063792423653",
+    "Website": "https://www.articles-danse-toulouse.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/Design-sem-nome-1.jpg"
+      }
+    ]
+  },
+  {
+    "id": "catss",
+    "Nome": "Catss",
+    "Slug": "catss",
+    "Cidade": [
+      "orvault"
+    ],
+    "Endereco": "14 Rte de la Garenne, 44700",
+    "Telefone": "+33 6 62 27 31 37",
+    "Email": "annafranceschi@catss.fr",
+    "Logo": [
+      {
+        "url": "/assets/images/catss.jpg"
+      }
+    ]
+  },
+  {
+    "id": "sissone",
+    "Nome": "Sissone",
+    "Slug": "sissone",
+    "Cidade": [
+      "imp-charles-fourrier-baillargues"
+    ],
+    "Endereco": "395B Rue Jean Baptiste Calvignac",
+    "Telefone": "+33 4 67 16 91 26",
+    "Email": "sissone.danse@gmail.com",
+    "Instagram": "https://www.instagram.com/sissonedanse/",
+    "Facebook": "https://www.facebook.com/SissoneDanse",
+    "Website": "https://www.sissone-danse.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/245008254_4486620848120000_8770347677704494935_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "generations-sports-com",
+    "Nome": "Generations Sports & Com",
+    "Slug": "generations-sports-com",
+    "Cidade": [
+      "vigneux-de-bretagne"
+    ],
+    "Endereco": "10 B, Rue du Moulin Neuf",
+    "Telefone": "06 48 84 33 94",
+    "Email": "generationssportsetcom@orange.fr",
+    "Website": "https://generations-sports.com/",
+    "Logo": [
+      {
+        "url": "/assets/images/Design-sem-nome.jpg"
+      }
+    ]
+  },
+  {
+    "id": "le-monde-de-la-danse",
+    "Nome": "Le Monde de la Danse",
+    "Slug": "le-monde-de-la-danse",
+    "Cidade": [
+      "sainte-genevieve-des-bois"
+    ],
+    "Endereco": "89 Avenue Gabriel Peri",
+    "Telefone": "33 973 581 925",
+    "Email": "contact@lemondedeladanse91.com",
+    "Website": "https://www.lemondedeladanse91.com/",
+    "Logo": [
+      {
+        "url": "/assets/images/264238529_5009550865743159_5849123644984719875_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "media-danse",
+    "Nome": "Media Danse",
+    "Slug": "media-danse",
+    "Cidade": [
+      "avignon"
+    ],
+    "Endereco": "57 Rue Grande Fustierie",
+    "LinkMaps": "https://www.google.com/maps/@43.9518887,4.8051445,3a,75y,273.17h,90t/data=!3m7!1e1!3m5!1s8JepGdn5sFiAw2hTV077xw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D8JepGdn5sFiAw2hTV077xw%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D273.17%26pitch%3D0%26thumbfov%3D90!7i16384!8i8192?coh=205410&entry=ttu",
+    "Telefone": "33 490 855 341",
+    "Email": "mediadanse.akv@sfr.fr",
+    "Facebook": "https://www.facebook.com/p/M%C3%A9dia-Danse-100063627998416/",
+    "Website": "https://www.qualidanse.fr/?fbclid=IwY2xjawEQ3UBleHRuA2FlbQIxMAABHfBnFQeB9rpmVUR96NUfx9nSS5A8CDvph79LjFVUAvjekhceAGOGyX9XgA_aem_P87hbkw2A25ySPhXpM3IpA",
+    "Logo": [
+      {
+        "url": "/assets/images/305049466_508905104573752_6134614782747218245_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "lets-dance",
+    "Nome": "Let's Dance",
+    "Slug": "lets-dance",
+    "Cidade": [
+      "nancy"
+    ],
+    "Endereco": "6 Rue des Quatre Eglises",
+    "LinkMaps": "https://www.google.com/maps/@48.6886484,6.1826123,3a,75y,222.74h,90t/data=!3m7!1e1!3m5!1svZ3PVuFq4XaH9dmLOddsIA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DvZ3PVuFq4XaH9dmLOddsIA%26cb_client%3Dmaps_sv.share%26w%3D900%26h%3D600%26yaw%3D222.74%26pitch%3D0%26thumbfov%3D90!7i16384!8i8192?coh=205410&entry=ttu",
+    "Telefone": "33 633 475 037",
+    "Email": "boutique.letsdance@gmail.com",
+    "Logo": [
+      {
+        "url": "/assets/images/programar-europa-2.jpg"
+      }
+    ]
+  },
+  {
+    "id": "claq-co",
+    "Nome": "Claq & Co",
+    "Slug": "claq-co",
+    "Cidade": [
+      "les-ulis"
+    ],
+    "Telefone": "33 768 153 647",
+    "Email": "contact@claqandco.fr",
+    "Instagram": "https://www.instagram.com/claqandco",
+    "Facebook": "https://www.facebook.com/claqandco",
+    "Website": "https://claqandco.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/241190313_1476071486093277_1169596155638228568_n.png"
+      }
+    ]
+  },
+  {
+    "id": "la-boutique-danse",
+    "Nome": "La Boutique Danse",
+    "Slug": "la-boutique-danse",
+    "Cidade": [
+      "tourrettes-sur-loup"
+    ],
+    "Endereco": "352 Chem. des Vergers, 06140",
+    "Telefone": "+33 6 64 04 66 85",
+    "Email": "contact@laboutiquedanse.fr",
+    "Instagram": "https://www.instagram.com/laboutiquedanse/",
+    "Facebook": "https://www.facebook.com/laboutiquedanse",
+    "Website": "https://laboutiquedanse.fr/fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/15284998_224586711300495_1989407113952420855_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "danse-des-couleurs",
+    "Nome": "Danse de Couleurs",
+    "Slug": "danse-des-couleurs",
+    "Cidade": [
+      "jousseray"
+    ],
+    "Endereco": "20 Rue des Guérets 44350",
+    "LinkMaps": "https://www.google.com/maps/dir//8+Rue+des+Guerets,+44350+Gu%C3%A9rande,+France/@47.3233048,-2.4905917,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x48055ea74eb43633:0x131dbb788e55e020!2m2!1d-2.4081912!2d47.3233343?entry=ttu",
+    "Telefone": "33 660 079 959",
+    "Email": "dansedescouleurs@yahoo.fr",
+    "Website": "https://dansedescouleurs.com/355-so-danca",
+    "Logo": [
+      {
+        "url": "/assets/images/308518166_8014386921967647_5394266450519407410_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "tutu-cie",
+    "Nome": "Tutu & Cie",
+    "Slug": "tutu-cie",
+    "Cidade": [
+      "rosheim"
+    ],
+    "Endereco": "100 rue du général de gaulle, Rosheim",
+    "LinkMaps": "https://www.google.com/maps/place/TUTU+%26+Cie/@48.496683,7.4664719,17z/data=!4m9!1m2!2m1!1s100+rue+du+g%C3%A9n%C3%A9ral+de+gaulle,+Rosheim!3m5!1s0x4796ad0913337ec7:0x248040c5232255d4!8m2!3d48.4963797!4d7.4701281!15sCicxMDAgcnVlIGR1IGfDqW7DqXJhbCBkZSBnYXVsbGUsIFJvc2hlaW1aKCImMTAwIHJ1ZSBkdSBnw6luw6lyYWwgZGUgZ2F1bGxlIHJvc2hlaW2SAQtkYW5jZV9zdG9yZQ",
+    "Telefone": "33 679 541 263",
+    "Email": "tutu-et-cie@orange.fr",
+    "Website": "https://www.tutu-et-cie.com/",
+    "Logo": [
+      {
+        "url": "/assets/images/365779189_122096738642018167_3417460087456885942_n.jpg"
+      }
+    ]
+  },
+  {
+    "id": "tutu-et-compagnie",
+    "Nome": "Tutu et Compagnie",
+    "Slug": "tutu-et-compagnie",
+    "Cidade": [
+      "libourne"
+    ],
+    "Endereco": "45, Rue Jules Simon",
+    "LinkMaps": "https://www.google.com/maps/place/45+Rue+Jules+Simon,+75015+Paris,+Fran%C3%A7a/@48.8403307,2.2908021,17z/data=!3m1!4b1!4m5!3m4!1s0x47e670138a491a47:0xe7e4017446c592b1!8m2!3d48.8403307!4d2.2929908",
+    "Telefone": "33 632 713 505",
+    "Email": "contact@tutuetcompagnie.fr",
+    "Instagram": "https://www.instagram.com/tutu_et_compagnie",
+    "Facebook": "https://www.facebook.com/tutuetcompagnie",
+    "Website": "https://www.tutuetcompagnie.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/boneco-so-danca-400x400-2.jpg"
+      }
+    ]
+  },
+  {
+    "id": "cadence-boutique-de-la-danse",
+    "Nome": "Cadence Boutique de la Danse",
+    "Slug": "cadence-boutique-de-la-danse",
+    "Cidade": [
+      "bayonne"
+    ],
+    "Endereco": "32 Rue Bourgneuf",
+    "LinkMaps": "https://www.google.com.br/maps/place/Cadence/@43.4916525,-1.4737075,19z/data=!3m1!4b1!4m6!3m5!1s0xd51400d0b526d03:0x4fa5f66772892bca!8m2!3d43.4916515!4d-1.4730638!16s%2Fg%2F1tk8dffd?entry=ttu",
+    "Telefone": "05 59 63 00 65",
+    "Email": "boutique@cadence-bayonne.fr",
+    "Instagram": "https://www.instagram.com/cadence.bayonne/",
+    "Facebook": "https://www.facebook.com/profile.php?id=100057047276443",
+    "Website": "https://www.cadence-bayonne.fr/",
+    "Logo": [
+      {
+        "url": "/assets/images/300396771_553363986575172_2492663777860476436_n.jpg"
+      }
+    ]
+  }
+]

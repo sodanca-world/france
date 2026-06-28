@@ -1,0 +1,164 @@
+---
+interface Props {
+  loja: {
+    Nome: string;
+    Slug: string;
+    Endereco?: string;
+    LinkMaps?: string;
+    Telefone?: string;
+    Email?: string;
+    Instagram?: string;
+    Facebook?: string;
+    Website?: string;
+    Logo?: Array<{ url: string }>;
+  };
+  isDetail?: boolean;
+}
+
+const { loja, isDetail = false } = Astro.props;
+
+const logoUrl = (loja.Logo && loja.Logo.length > 0) 
+  ? loja.Logo[0].url 
+  : '/assets/images/cropped-Logo-2.png'; // Fallback elegante do logo Só Dança
+
+// Iniciais para o avatar caso não tenha logotipo real
+const initials = loja.Nome.split(' ')
+  .map(n => n[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+---
+
+<div class={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-sodanca-nude/20 bg-white p-6 md:p-8 card-hover-effect ${isDetail ? 'shadow-lg' : ''}`}>
+  
+  <!-- Top section: Logo and Name -->
+  <div>
+    <div class="flex items-start justify-between gap-4 mb-6">
+      <div class="h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-sodanca-nude/20 bg-sodanca-light p-2 flex items-center justify-center">
+        {loja.Logo && loja.Logo.length > 0 ? (
+          <img 
+            src={logoUrl} 
+            alt={loja.Nome} 
+            class="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <span class="font-sans text-lg font-bold text-france-blue">{initials}</span>
+        )}
+      </div>
+
+      <!-- Detail Page Link (only if not on detail page) -->
+      {!isDetail && (
+        <a 
+          href={`/cliente/${loja.Slug}/`}
+          class="rounded-full bg-sodanca-pink/10 hover:bg-sodanca-pink/20 p-2 text-sodanca-accent hover:text-france-blue transition-colors"
+          aria-label={`Voir la fiche de ${loja.Nome}`}
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      )}
+    </div>
+
+    <!-- Store Name -->
+    <h3 class="font-sans text-xl font-bold text-sodanca-dark mb-4 group-hover:text-france-blue transition-colors">
+      {loja.Nome}
+    </h3>
+
+    <!-- Contacts list -->
+    <div class="space-y-3.5 text-sm text-gray-500 mb-8">
+      <!-- Address -->
+      {loja.Endereco && (
+        <div class="flex items-start gap-3">
+          <svg class="h-5 w-5 text-sodanca-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          {loja.LinkMaps ? (
+            <a 
+              href={loja.LinkMaps} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="hover:text-france-blue hover:underline transition-colors leading-relaxed"
+            >
+              {loja.Endereco}
+            </a>
+          ) : (
+            <span class="leading-relaxed">{loja.Endereco}</span>
+          )}
+        </div>
+      )}
+
+      <!-- Phone -->
+      {loja.Telefone && (
+        <div class="flex items-center gap-3">
+          <svg class="h-5 w-5 text-sodanca-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <a href={`tel:${loja.Telefone.replace(/\s+/g, '')}`} class="hover:text-france-blue transition-colors font-medium">
+            {loja.Telefone}
+          </a>
+        </div>
+      )}
+
+      <!-- Email -->
+      {loja.Email && (
+        <div class="flex items-center gap-3">
+          <svg class="h-5 w-5 text-sodanca-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <a href={`mailto:${loja.Email}`} class="hover:text-france-blue transition-colors break-all">
+            {loja.Email}
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- Footer Actions: Social Links and Web Button -->
+  <div class="border-t border-sodanca-nude/10 pt-5 flex items-center justify-between gap-4">
+    <!-- Social Links -->
+    <div class="flex items-center gap-2">
+      {loja.Instagram && (
+        <a 
+          href={loja.Instagram} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="rounded-full bg-sodanca-light p-2 text-gray-400 hover:bg-sodanca-pink/20 hover:text-france-red transition-all"
+          aria-label="Instagram de la boutique"
+        >
+          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+          </svg>
+        </a>
+      )}
+      {loja.Facebook && (
+        <a 
+          href={loja.Facebook} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="rounded-full bg-sodanca-light p-2 text-gray-400 hover:bg-sodanca-pink/20 hover:text-france-blue transition-all"
+          aria-label="Facebook de la boutique"
+        >
+          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
+          </svg>
+        </a>
+      )}
+    </div>
+
+    <!-- Web Link Button -->
+    {loja.Website && (
+      <a 
+        href={loja.Website} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="rounded-full border border-france-blue text-france-blue hover:bg-france-blue hover:text-white px-5 py-2 text-xs font-semibold uppercase tracking-wider btn-hover-effect"
+      >
+        Visiter le site
+      </a>
+    )}
+  </div>
+
+</div>

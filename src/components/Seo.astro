@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+  schema?: Record<string, any>;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/assets/images/FR-fundo-site.jpg',
+  canonical = Astro.url.href,
+  schema
+} = Astro.props;
+
+const siteURL = 'https://france.sodanca.world';
+
+// Schema base padrão para o site institucional do Store Locator
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteURL}/#website`,
+  "name": "Só Dança France",
+  "url": siteURL,
+  "description": "Trouvez votre boutique de danse Só Dança en France. Store locator officiel.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Só Dança",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteURL}/assets/images/Logo-2.png`
+    }
+  }
+};
+
+const schemas = [defaultSchema];
+if (schema) {
+  schemas.push(schema);
+}
+---
+
+<!-- SEO Tradicional -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="icon" type="image/png" href="/assets/images/cropped-Logo-2.png" />
+<title>{title} | Só Dança France</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={`${title} | Só Dança France`} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `${siteURL}${ogImage}`} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonical} />
+<meta property="twitter:title" content={`${title} | Só Dança France`} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${siteURL}${ogImage}`} />
+
+<!-- GEO-targeting (França) -->
+<meta name="geo.region" content="FR" />
+<meta name="geo.placename" content="France" />
+
+<!-- AEO (AI Search Engine Optimization) -->
+<meta name="llm-description" content="Localisateur de magasins officiel pour Só Dança en France. Retrouvez l'adresse, le téléphone, le courrier électronique, l'itinéraire et les réseaux sociaux des boutiques partenaires qui vendent des articles de ballet, jazz et danse classique Só Dança." />
+
+<!-- Injeção de Schemas JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(schemas)} is:inline />
