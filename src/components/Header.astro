@@ -2,145 +2,160 @@
 import { getCollection } from 'astro:content';
 
 const cidades = await getCollection('cidades');
-// Ordena por ordem ou alfabética
-const cidadesOrdenadas = cidades.sort((a, b) => {
-  if (a.data.Ordem !== undefined && b.data.Ordem !== undefined) {
-    return a.data.Ordem - b.data.Ordem;
-  }
-  return a.data.Nome.localeCompare(b.data.Nome);
-});
+
+// Ordenar cidades em ordem alfabética
+const cidadesOrdenadas = cidades.sort((a, b) => a.data.Nome.localeCompare(b.data.Nome));
 ---
 
-<header class="sticky top-0 z-50 w-full border-b border-sodanca-nude/30 bg-white/85 backdrop-blur-md transition-all duration-300">
-  <div class="mx-auto flex max-w-7xl h-20 items-center justify-between px-6">
-    
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+<!-- ================= DESKTOP SIDEBAR ================= -->
+<div class="hidden lg:flex lg:flex-col lg:justify-between lg:sticky lg:top-0 lg:h-screen lg:py-16 w-full text-white">
+  
+  <!-- Logo Section -->
+  <div class="flex flex-col gap-2 shrink-0">
+    <a href="/" class="transition-opacity hover:opacity-90 block">
       <img 
-        src="/assets/images/Logo-2.png" 
+        src="/assets/images/Logo-branca-3.png" 
+        alt="Só Dança Logo" 
+        class="h-12 w-auto object-contain"
+      />
+    </a>
+    <div class="border-t border-white/20 mt-6 pt-4">
+      <span class="text-xs uppercase tracking-[0.25em] text-sodanca-nude font-bold block mb-1">
+        Boutiques
+      </span>
+      <span class="text-xs uppercase tracking-[0.15em] text-white/50 font-medium block">
+        France
+      </span>
+    </div>
+  </div>
+
+  <!-- Cities Scrollable List -->
+  <nav class="my-10 flex-grow overflow-y-auto pr-4 scroll-container relative select-none">
+    <ul class="space-y-3 font-sans text-sm font-semibold tracking-wide text-white/70">
+      {cidadesOrdenadas.map((cidade) => (
+        <li>
+          <a 
+            href={`/ville/${cidade.data.Slug}/`} 
+            class="block py-1 hover:text-white transition-colors duration-200"
+          >
+            {cidade.data.Nome}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- Desktop Sidebar Footer -->
+  <div class="shrink-0 text-[10px] text-white/30 tracking-widest uppercase">
+    <p>&copy; {new Date().getFullYear()} Só Dança</p>
+  </div>
+
+</div>
+
+
+<!-- ================= MOBILE HEADER & MODAL ================= -->
+<div class="lg:hidden w-full bg-sodanca-dark/40 backdrop-blur-sm border-b border-white/10 px-6 py-6 text-white shrink-0">
+  <div class="flex flex-col items-center gap-4">
+    <!-- Logo -->
+    <a href="/" class="block">
+      <img 
+        src="/assets/images/Logo-branca-3.png" 
         alt="Só Dança Logo" 
         class="h-10 w-auto object-contain"
       />
-      <div class="hidden sm:flex flex-col border-l border-sodanca-nude/40 pl-3">
-        <span class="text-xs uppercase tracking-[0.2em] text-sodanca-dark/50">Boutiques</span>
-        <span class="font-sans text-sm font-semibold tracking-wide text-france-blue">France</span>
-      </div>
     </a>
-
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-8">
-      <a href="/" class="text-sm font-medium text-sodanca-dark hover:text-france-blue transition-colors">
-        Accueil
-      </a>
-      
-      <!-- Dropdown Cidades -->
-      <div class="relative group">
-        <button class="flex items-center gap-1.5 text-sm font-medium text-sodanca-dark hover:text-france-blue transition-colors focus:outline-none">
-          Villes
-          <svg class="h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        
-        <!-- Dropdown Menu -->
-        <div class="absolute right-0 mt-2 w-72 origin-top-right rounded-xl border border-sodanca-nude/30 bg-white p-4 shadow-xl ring-1 ring-black/5 opacity-0 invisible translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 max-h-96 overflow-y-auto">
-          <div class="grid grid-cols-2 gap-2">
-            {cidadesOrdenadas.map((cidade) => (
-              <a 
-                href={`/ville/${cidade.data.Slug}/`} 
-                class="rounded-lg px-2.5 py-1.5 text-xs text-sodanca-dark/80 hover:bg-sodanca-pink/20 hover:text-france-blue font-medium transition-colors"
-              >
-                {cidade.data.Nome}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-      
-      <a 
-        href="https://sodanca.com" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="rounded-full bg-france-blue px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white btn-hover-effect"
-      >
-        Só Dança World
-      </a>
-    </nav>
-
-    <!-- Mobile Burger Menu -->
+    
+    <!-- Menu Toggle Button -->
     <button 
-      id="menu-toggle"
-      type="button" 
-      class="inline-flex items-center justify-center rounded-lg p-2 text-sodanca-dark hover:bg-sodanca-pink/10 focus:outline-none md:hidden"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
+      id="mobile-menu-open"
+      type="button"
+      class="w-full max-w-[200px] border border-white/20 rounded-lg py-2.5 text-xs font-bold tracking-widest uppercase text-white/90 hover:bg-white/10 active:bg-white/20 transition-all focus:outline-none"
     >
-      <span class="sr-only">Open main menu</span>
-      <svg id="burger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg id="close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+      Menu Villes
     </button>
+  </div>
+</div>
 
+<!-- Mobile Fullscreen Modal Overlay -->
+<div 
+  id="mobile-cities-modal"
+  class="fixed inset-0 z-50 bg-sodanca-dark/95 backdrop-blur-md hidden flex-col justify-between p-8 text-white select-none overflow-y-auto"
+>
+  <!-- Modal Header -->
+  <div class="flex items-center justify-between shrink-0 mb-8 border-b border-white/10 pb-4">
+    <img 
+      src="/assets/images/Logo-branca-3.png" 
+      alt="Só Dança Logo" 
+      class="h-8 w-auto object-contain"
+    />
+    <button 
+      id="mobile-menu-close"
+      type="button"
+      class="border border-white/20 rounded-lg px-4 py-2 text-xs font-bold tracking-widest uppercase hover:bg-white/15 transition-all focus:outline-none"
+    >
+      Close
+    </button>
   </div>
 
-  <!-- Mobile Menu (Drawer) -->
-  <div 
-    id="mobile-menu" 
-    class="hidden md:hidden border-t border-sodanca-nude/20 bg-white/95 backdrop-blur-md max-h-[calc(100vh-80px)] overflow-y-auto animate-fade-in"
-  >
-    <div class="space-y-1 px-6 py-4">
-      <a 
-        href="/" 
-        class="block rounded-lg px-3 py-2 text-base font-medium text-sodanca-dark hover:bg-sodanca-pink/10 hover:text-france-blue"
-      >
-        Accueil
-      </a>
-      
-      <div class="border-t border-sodanca-nude/10 my-2 pt-2">
-        <span class="block px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-sodanca-dark/40">Villes</span>
-        <div class="grid grid-cols-2 gap-1 px-3">
-          {cidadesOrdenadas.map((cidade) => (
-            <a 
-              href={`/ville/${cidade.data.Slug}/`} 
-              class="rounded-md py-1 text-sm text-sodanca-dark/80 hover:text-france-blue font-medium"
-            >
-              {cidade.data.Nome}
-            </a>
-          ))}
-        </div>
-      </div>
-      
-      <div class="border-t border-sodanca-nude/10 my-2 pt-4">
-        <a 
-          href="https://sodanca.com" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="block w-full rounded-full bg-france-blue py-2.5 text-center text-sm font-semibold uppercase tracking-wider text-white"
-        >
-          Só Dança World
-        </a>
-      </div>
-    </div>
+  <!-- Modal Cities List -->
+  <nav class="flex-grow overflow-y-auto py-2">
+    <ul class="grid grid-cols-2 gap-y-4 gap-x-6 text-center font-sans text-sm font-semibold tracking-wide text-white/80">
+      {cidadesOrdenadas.map((cidade) => (
+        <li>
+          <a 
+            href={`/ville/${cidade.data.Slug}/`} 
+            class="block py-2 rounded-lg bg-white/5 border border-white/5 active:bg-white/15 transition-all"
+          >
+            {cidade.data.Nome}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- Modal Footer -->
+  <div class="text-center shrink-0 mt-8 text-[9px] text-white/30 tracking-widest uppercase">
+    <p>&copy; {new Date().getFullYear()} Só Dança France</p>
   </div>
-</header>
+</div>
+
+
+<!-- Custom scrollbar styles helper -->
+<style>
+  /* Hide default scrollbar on desktop cities navigation but keep scroll active */
+  .scroll-container::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+  }
+  .scroll-container:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+  }
+</style>
 
 <script>
-  const toggleBtn = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const burgerIcon = document.getElementById('burger-icon');
-  const closeIcon = document.getElementById('close-icon');
+  const openBtn = document.getElementById('mobile-menu-open');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const modal = document.getElementById('mobile-cities-modal');
 
-  if (toggleBtn && mobileMenu && burgerIcon && closeIcon) {
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', (!isExpanded).toString());
-      
-      mobileMenu.classList.toggle('hidden');
-      burgerIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
+  if (openBtn && closeBtn && modal) {
+    // Open Modal
+    openBtn.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden'; // block page scrolling behind modal
+    });
+
+    // Close Modal
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = ''; // restore scrolling
     });
   }
 </script>

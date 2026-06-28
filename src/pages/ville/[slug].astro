@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import StoreCard from '../../components/StoreCard.astro';
 
@@ -13,13 +13,17 @@ export async function getStaticPaths() {
 
 const { cidade } = Astro.props;
 
-// Buscar todas as lojas e filtrar as que pertencem a esta cidade
+// Buscar lojas da cidade
 const lojas = await getCollection('lojas');
 const lojasNaCidade = lojas.filter((loja) => 
   loja.data.Cidade.includes(cidade.data.Slug)
 );
 
-// Schema JSON-LD para o localizador de lojas na cidade
+// Pegar redes sociais da primeira loja para alterar dinamicamente o sidebar de redes sociais
+const primeiraLoja = lojasNaCidade[0]?.data;
+const customFacebook = primeiraLoja?.Facebook || undefined;
+const customInstagram = primeiraLoja?.Instagram || undefined;
+
 const pageUrl = `https://france.sodanca.world/ville/${cidade.data.Slug}/`;
 const locatorSchema = {
   "@context": "https://schema.org",
@@ -50,59 +54,40 @@ const locatorSchema = {
   title={`Boutiques de Danse à ${cidade.data.Nome}`} 
   description={`Retrouvez la liste des revendeurs et boutiques de danse partenaires Só Dança à ${cidade.data.Nome}. Adresses, itinéraires, contacts.`}
   schema={locatorSchema}
+  facebook={customFacebook}
+  instagram={customInstagram}
 >
-  
-  <!-- Banner Top Section -->
-  <section class="bg-sodanca-light border-b border-sodanca-nude/20 py-12 md:py-16">
-    <div class="mx-auto max-w-7xl px-6">
-      
-      <!-- Back Link -->
-      <a 
-        href="/" 
-        class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sodanca-accent hover:text-france-blue transition-colors mb-6"
-      >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Retour à l'accueil
-      </a>
-
-      <!-- Title -->
-      <h1 class="font-sans text-3xl md:text-5xl font-bold tracking-tight text-sodanca-dark mb-4">
-        Boutiques à <span class="text-france-blue font-extrabold">{cidade.data.Nome}</span>
+  <div class="animate-fade-in max-w-4xl">
+    
+    <!-- Title Header -->
+    <div class="mb-10 text-white select-none">
+      <span class="text-xs uppercase tracking-[0.2em] font-bold text-sodanca-nude/80 block mb-1">
+        Ville
+      </span>
+      <h1 class="font-sans text-3xl md:text-5xl font-extrabold tracking-tight">
+        {cidade.data.Nome}
       </h1>
-      <p class="text-sm md:text-base text-gray-500 font-medium max-w-2xl leading-relaxed">
-        Découvrez les boutiques spécialisées qui distribuent les produits officiels Só Dança (chaussons de pointe, demi-pointes, justaucorps et accessoires de danse) dans votre région.
-      </p>
-
+      <div class="h-1 w-12 bg-sodanca-nude mt-4"></div>
     </div>
-  </section>
 
-  <!-- Lojas List Section -->
-  <section class="mx-auto max-w-7xl px-6 py-16">
+    <!-- Stores List -->
     {lojasNaCidade.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {lojasNaCidade.map((loja) => (
           <StoreCard loja={loja.data} />
         ))}
       </div>
     ) : (
-      <div class="py-20 text-center flex flex-col items-center justify-center border border-dashed border-sodanca-nude/30 rounded-2xl bg-white max-w-xl mx-auto">
-        <svg class="h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="py-12 px-6 text-center flex flex-col items-center justify-center border border-white/10 rounded-2xl bg-white/10 backdrop-blur-md text-white max-w-md">
+        <svg class="h-10 w-10 text-sodanca-nude mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
-        <h3 class="text-lg font-semibold text-sodanca-dark mb-1">Aucune boutique disponible</h3>
-        <p class="text-sm text-gray-400 max-w-xs leading-relaxed">
-          Nous n'avons actuellement aucun revendeur enregistré à {cidade.data.Nome}. Revenez bientôt !
+        <h3 class="text-base font-bold mb-1">Aucune boutique enregistrée</h3>
+        <p class="text-xs text-white/60 leading-relaxed">
+          Nous n'avons actuellement aucun revendeur agréé répertorié à {cidade.data.Nome}.
         </p>
-        <a 
-          href="/" 
-          class="mt-6 rounded-full bg-france-blue px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-white btn-hover-effect"
-        >
-          Voir les autres villes
-        </a>
       </div>
     )}
-  </section>
 
+  </div>
 </Layout>
