@@ -11,9 +11,10 @@ interface Props {
   schema?: Record<string, any>;
   facebook?: string;
   instagram?: string;
+  isHome?: boolean;
 }
 
-const { title, description, ogImage, schema, facebook, instagram } = Astro.props;
+const { title, description, ogImage, schema, facebook, instagram, isHome = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@ const { title, description, ogImage, schema, facebook, instagram } = Astro.props
       
       <!-- Coluna Esquerda: Cabeçalho & Menu Lateral Fixo -->
       <div class="w-full lg:w-[320px] shrink-0">
-        <Header />
+        <Header isHome={isHome} />
       </div>
 
       <!-- Coluna Direita: Conteúdo Principal Rolável -->
