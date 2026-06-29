@@ -15,7 +15,7 @@ const { loja } = Astro.props;
 
 // Buscar os dados da cidade para fins de breadcrumbs ou referencias
 const cidades = await getCollection('cidades');
-const cidadeSlug = loja.data.Cidade[0] || '';
+const cidadeSlug = loja.data.Cidades[0] || '';
 const cidade = cidades.find(c => c.data.Slug === cidadeSlug);
 
 const logoUrl = (loja.data.Logo && loja.data.Logo.length > 0)

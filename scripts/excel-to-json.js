@@ -45,9 +45,9 @@ try {
   }
   const lojasData = xlsx.utils.sheet_to_json(sheetLojas);
   const lojasMapped = lojasData.map(row => {
-    const cidade = row['Cidade (slug)'];
-    // Cidade deve ser um array de strings contendo o slug/id da cidade correspondente
-    const cidadesArray = cidade ? [cidade] : [];
+    const cidadeRelacao = row['Cidade (slug)'];
+    // Cidades deve ser um array de strings contendo o slug/id da cidade correspondente
+    const cidadesArray = cidadeRelacao ? [cidadeRelacao] : [];
     
     // Tratamento do Logo
     let logoArray = undefined;
@@ -59,8 +59,9 @@ try {
     return {
       id: row.Slug,
       Nome: row.Nome,
+      Cidade: row.Cidade || undefined,
+      Cidades: cidadesArray,
       Slug: row.Slug,
-      Cidade: cidadesArray,
       Endereco: row.Endereco || undefined,
       LinkMaps: row.LinkMaps || undefined,
       Telefone: row.Telefone ? String(row.Telefone) : undefined,
@@ -68,7 +69,8 @@ try {
       Instagram: row.Instagram || undefined,
       Facebook: row.Facebook || undefined,
       Website: row.Website || undefined,
-      Logo: logoArray
+      Logo: logoArray,
+      Ordem: row.Ordem ? Number(row.Ordem) : undefined
     };
   });
 
